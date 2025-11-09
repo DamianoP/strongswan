@@ -1,6 +1,7 @@
 services:
   vpn:
     build: .
+    # image: damianop/strongswan:20251109
     restart: always
     container_name: strongswan-vpn
     privileged: true
