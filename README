@@ -1,4 +1,6 @@
 This project allows you to have an IKEv2/IPSec MSCHAPv2 VPN inside a Docker container and easily manage multiple users.
 
+If you do not want to compile the image, you can use an image uploaded to Docker Hub: https://hub.docker.com/r/damianop/strongswan
 
-Dockerhub: https://hub.docker.com/r/damianop/strongswan
+
+
