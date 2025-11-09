@@ -1,0 +1,14 @@
+services:
+  vpn:
+    build: .
+    restart: always
+    container_name: strongswan-vpn
+    privileged: true
+    environment:
+      - VPN_SERVER_IP=www.yourdomain.com
+      - VPN_USERS=user1:pass1,user2:pass2
+    volumes:
+      - ./data:/etc/ipsec.d
+    ports:
+      - 500:500/udp
+      - 4500:4500/udp
