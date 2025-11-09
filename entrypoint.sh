@@ -83,7 +83,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 if command -v sysctl >/dev/null 2>&1; then
   sysctl -w net.ipv4.ip_forward=1 >/dev/null
 else
-  echo "[WARN] sysctl non trovato, impostato forwarding via /proc"
+  echo "[WARN] sysctl not found, setting forwarding via /proc"
 fi
 
 IFACE=$(ip route show default | awk '/default/ {print $5}' | head -n 1)
@@ -94,7 +94,7 @@ if [ -n "$IFACE" ]; then
   iptables -A FORWARD -s 10.10.10.0/24 -o "$IFACE" -j ACCEPT
   iptables -A FORWARD -d 10.10.10.0/24 -m state --state ESTABLISHED,RELATED -j ACCEPT
 else
-  echo "[!] Nessuna interfaccia di default trovata, NAT non impostato."
+  echo "[!] No default interface found, NAT not set."
 fi
 
 echo "[+] Configuration completed."
